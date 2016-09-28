@@ -1,0 +1,40 @@
+PODS:
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.7)
+  - HexColors (2.2.1)
+  - MagicalRecord/Core+Logging (3.0.0.dev.1475075907)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - TSMessages (0.9.12):
+    - HexColors (~> 2.2.0)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - MagicalRecord/Core+Logging (from `https://github.com/magicalpanda/MagicalRecord.git`, branch `release/3.0`)
+  - SDWebImage (~> 3.7.2)
+  - TSMessages (~> 0.9)
+
+EXTERNAL SOURCES:
+  MagicalRecord:
+    :branch: release/3.0
+    :git: https://github.com/magicalpanda/MagicalRecord.git
+
+CHECKOUT OPTIONS:
+  MagicalRecord:
+    :commit: b1e621cf0557d5d1f245658ae9adb6004081bef6
+    :git: https://github.com/magicalpanda/MagicalRecord.git
+
+SPEC CHECKSUMS:
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
+  MagicalRecord: 96934b858e3a7a1353c1f8a12a98cbcaa20d66c2
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
+
+PODFILE CHECKSUM: 1c4c19ba07108cf23a29093b8277e3bcd22f9918
+
+COCOAPODS: 1.0.0

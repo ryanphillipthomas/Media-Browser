@@ -15,7 +15,44 @@
 		0A9CFF4C1D9AE1D9006854D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4A1D9AE1D9006854D3 /* Main.storyboard */; };
 		0A9CFF4E1D9AE1D9006854D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */; };
 		0A9CFF511D9AE1D9006854D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4F1D9AE1D9006854D3 /* LaunchScreen.storyboard */; };
+		0A9F357B1D9C1D2A00D48841 /* Video+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35781D9C1D2A00D48841 /* Video+CoreDataClass.m */; };
+		0A9F357C1D9C1D2A00D48841 /* Video+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F357A1D9C1D2A00D48841 /* Video+CoreDataProperties.m */; };
+		0A9F35821D9C211E00D48841 /* Photo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F357F1D9C211E00D48841 /* Photo+CoreDataClass.m */; };
+		0A9F35831D9C211E00D48841 /* Photo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35811D9C211E00D48841 /* Photo+CoreDataProperties.m */; };
+		0A9F35881D9C218900D48841 /* Routine+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35851D9C218900D48841 /* Routine+CoreDataClass.m */; };
+		0A9F35891D9C218900D48841 /* Routine+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35871D9C218900D48841 /* Routine+CoreDataProperties.m */; };
+		0A9F358E1D9C22DD00D48841 /* Location+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F358B1D9C22DD00D48841 /* Location+CoreDataClass.m */; };
+		0A9F358F1D9C22DD00D48841 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F358D1D9C22DD00D48841 /* Location+CoreDataProperties.m */; };
+		0A9F359D1D9C287900D48841 /* libFTPKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9F35981D9C282600D48841 /* libFTPKit.a */; };
+		0A9F359F1D9C288700D48841 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9F359E1D9C288700D48841 /* CFNetwork.framework */; };
+		0A9F35A11D9C289300D48841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9F35A01D9C289300D48841 /* Foundation.framework */; };
+		0A9F35A41D9C2A1E00D48841 /* FTPObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */; };
+		DCDFA54AB3B09BC767726199 /* libPods-Media Browser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A9F35971D9C282600D48841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A9F35921D9C282600D48841 /* FTPKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F27BA1CE1802FE7E00584A9E;
+			remoteInfo = FTPKit;
+		};
+		0A9F35991D9C282600D48841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A9F35921D9C282600D48841 /* FTPKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07F23C4818CA4C43002BDF93;
+			remoteInfo = "FTPKit Tests";
+		};
+		0A9F359B1D9C285E00D48841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A9F35921D9C282600D48841 /* FTPKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F27BA1CD1802FE7E00584A9E;
+			remoteInfo = FTPKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A9CFF381D9AE1D9006854D3 /* Media Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Media Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +68,37 @@
 		0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A9CFF501D9AE1D9006854D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A9CFF521D9AE1D9006854D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9CFF5F1D9AE408006854D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0A9CFF611D9AE408006854D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0A9CFF621D9AE408006854D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0A9CFF641D9AE408006854D3 /* application.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = application.js; sourceTree = "<group>"; };
+		0A9CFF651D9AE408006854D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A9CFF671D9AE408006854D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9F35771D9C1D2A00D48841 /* Video+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Video+CoreDataClass.h"; sourceTree = "<group>"; };
+		0A9F35781D9C1D2A00D48841 /* Video+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Video+CoreDataClass.m"; sourceTree = "<group>"; };
+		0A9F35791D9C1D2A00D48841 /* Video+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Video+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A9F357A1D9C1D2A00D48841 /* Video+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Video+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A9F357D1D9C1EF400D48841 /* Media-Browser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Media-Browser-Prefix.pch"; sourceTree = "<group>"; };
+		0A9F357E1D9C211E00D48841 /* Photo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+CoreDataClass.h"; sourceTree = "<group>"; };
+		0A9F357F1D9C211E00D48841 /* Photo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+CoreDataClass.m"; sourceTree = "<group>"; };
+		0A9F35801D9C211E00D48841 /* Photo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A9F35811D9C211E00D48841 /* Photo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A9F35841D9C218900D48841 /* Routine+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Routine+CoreDataClass.h"; sourceTree = "<group>"; };
+		0A9F35851D9C218900D48841 /* Routine+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Routine+CoreDataClass.m"; sourceTree = "<group>"; };
+		0A9F35861D9C218900D48841 /* Routine+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Routine+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A9F35871D9C218900D48841 /* Routine+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Routine+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A9F358A1D9C22DD00D48841 /* Location+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataClass.h"; sourceTree = "<group>"; };
+		0A9F358B1D9C22DD00D48841 /* Location+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataClass.m"; sourceTree = "<group>"; };
+		0A9F358C1D9C22DD00D48841 /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A9F358D1D9C22DD00D48841 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A9F35921D9C282600D48841 /* FTPKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FTPKit.xcodeproj; path = "Frameworks/FTPKit-master/FTPKit.xcodeproj"; sourceTree = "<group>"; };
+		0A9F359E1D9C288700D48841 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0A9F35A01D9C289300D48841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0A9F35A21D9C2A1E00D48841 /* FTPObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPObjectData.h; sourceTree = "<group>"; };
+		0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPObjectData.m; sourceTree = "<group>"; };
+		34BCBF28E7234C2FA10F964F /* Pods-Media Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.release.xcconfig"; sourceTree = "<group>"; };
+		5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Media Browser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		815B700695B76BDA1C92C56D /* Pods-Media Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +106,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9F35A11D9C289300D48841 /* Foundation.framework in Frameworks */,
+				0A9F359F1D9C288700D48841 /* CFNetwork.framework in Frameworks */,
+				0A9F359D1D9C287900D48841 /* libFTPKit.a in Frameworks */,
+				DCDFA54AB3B09BC767726199 /* libPods-Media Browser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,7 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				0A9CFF3A1D9AE1D9006854D3 /* Media Browser */,
+				0A9CFF5D1D9AE408006854D3 /* Media Browser - TV */,
 				0A9CFF391D9AE1D9006854D3 /* Products */,
+				D7DAEF9932A2CFD02E59170C /* Pods */,
+				2EE14F5E81FEBF1368676DDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,10 +145,10 @@
 				0A9CFF471D9AE1D9006854D3 /* DetailViewController.h */,
 				0A9CFF481D9AE1D9006854D3 /* DetailViewController.m */,
 				0A9CFF4A1D9AE1D9006854D3 /* Main.storyboard */,
-				0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */,
 				0A9CFF4F1D9AE1D9006854D3 /* LaunchScreen.storyboard */,
+				0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */,
 				0A9CFF521D9AE1D9006854D3 /* Info.plist */,
-				0A9CFF411D9AE1D9006854D3 /* Media_Browser.xcdatamodeld */,
+				0A9F35701D9C1CF600D48841 /* API Model */,
 				0A9CFF3B1D9AE1D9006854D3 /* Supporting Files */,
 			);
 			path = "Media Browser";
@@ -83,8 +158,101 @@
 			isa = PBXGroup;
 			children = (
 				0A9CFF3C1D9AE1D9006854D3 /* main.m */,
+				0A9F357D1D9C1EF400D48841 /* Media-Browser-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A9CFF5D1D9AE408006854D3 /* Media Browser - TV */ = {
+			isa = PBXGroup;
+			children = (
+				0A9CFF611D9AE408006854D3 /* AppDelegate.h */,
+				0A9CFF621D9AE408006854D3 /* AppDelegate.m */,
+				0A9CFF651D9AE408006854D3 /* Assets.xcassets */,
+				0A9CFF671D9AE408006854D3 /* Info.plist */,
+				0A9CFF5E1D9AE408006854D3 /* Supporting Files */,
+			);
+			path = "Media Browser - TV";
+			sourceTree = "<group>";
+		};
+		0A9CFF5E1D9AE408006854D3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0A9CFF5F1D9AE408006854D3 /* main.m */,
+				0A9CFF641D9AE408006854D3 /* application.js */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A9F35701D9C1CF600D48841 /* API Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A9F35911D9C249D00D48841 /* API Data */,
+				0A9F35901D9C23E500D48841 /* NSManagedObjects */,
+				0A9CFF411D9AE1D9006854D3 /* Media_Browser.xcdatamodeld */,
+			);
+			name = "API Model";
+			sourceTree = "<group>";
+		};
+		0A9F35901D9C23E500D48841 /* NSManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				0A9F358A1D9C22DD00D48841 /* Location+CoreDataClass.h */,
+				0A9F358B1D9C22DD00D48841 /* Location+CoreDataClass.m */,
+				0A9F358C1D9C22DD00D48841 /* Location+CoreDataProperties.h */,
+				0A9F358D1D9C22DD00D48841 /* Location+CoreDataProperties.m */,
+				0A9F35841D9C218900D48841 /* Routine+CoreDataClass.h */,
+				0A9F35851D9C218900D48841 /* Routine+CoreDataClass.m */,
+				0A9F35861D9C218900D48841 /* Routine+CoreDataProperties.h */,
+				0A9F35871D9C218900D48841 /* Routine+CoreDataProperties.m */,
+				0A9F357E1D9C211E00D48841 /* Photo+CoreDataClass.h */,
+				0A9F357F1D9C211E00D48841 /* Photo+CoreDataClass.m */,
+				0A9F35801D9C211E00D48841 /* Photo+CoreDataProperties.h */,
+				0A9F35811D9C211E00D48841 /* Photo+CoreDataProperties.m */,
+				0A9F35771D9C1D2A00D48841 /* Video+CoreDataClass.h */,
+				0A9F35781D9C1D2A00D48841 /* Video+CoreDataClass.m */,
+				0A9F35791D9C1D2A00D48841 /* Video+CoreDataProperties.h */,
+				0A9F357A1D9C1D2A00D48841 /* Video+CoreDataProperties.m */,
+			);
+			name = NSManagedObjects;
+			sourceTree = "<group>";
+		};
+		0A9F35911D9C249D00D48841 /* API Data */ = {
+			isa = PBXGroup;
+			children = (
+				0A9F35A21D9C2A1E00D48841 /* FTPObjectData.h */,
+				0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */,
+			);
+			name = "API Data";
+			sourceTree = "<group>";
+		};
+		0A9F35931D9C282600D48841 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A9F35981D9C282600D48841 /* libFTPKit.a */,
+				0A9F359A1D9C282600D48841 /* FTPKit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2EE14F5E81FEBF1368676DDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A9F35A01D9C289300D48841 /* Foundation.framework */,
+				0A9F359E1D9C288700D48841 /* CFNetwork.framework */,
+				0A9F35921D9C282600D48841 /* FTPKit.xcodeproj */,
+				5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7DAEF9932A2CFD02E59170C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				815B700695B76BDA1C92C56D /* Pods-Media Browser.debug.xcconfig */,
+				34BCBF28E7234C2FA10F964F /* Pods-Media Browser.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,13 +262,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A9CFF551D9AE1D9006854D3 /* Build configuration list for PBXNativeTarget "Media Browser" */;
 			buildPhases = (
+				4724546D87E0FB6DEED3D5C9 /* 📦 Check Pods Manifest.lock */,
 				0A9CFF341D9AE1D9006854D3 /* Sources */,
 				0A9CFF351D9AE1D9006854D3 /* Frameworks */,
 				0A9CFF361D9AE1D9006854D3 /* Resources */,
+				95DC1612200B54C0FEF3055C /* 📦 Embed Pods Frameworks */,
+				DB42892D3A22F07CC31A32C0 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0A9F359C1D9C285E00D48841 /* PBXTargetDependency */,
 			);
 			name = "Media Browser";
 			productName = "Media Browser";
@@ -134,12 +306,35 @@
 			mainGroup = 0A9CFF2F1D9AE1D9006854D3;
 			productRefGroup = 0A9CFF391D9AE1D9006854D3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0A9F35931D9C282600D48841 /* Products */;
+					ProjectRef = 0A9F35921D9C282600D48841 /* FTPKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0A9CFF371D9AE1D9006854D3 /* Media Browser */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0A9F35981D9C282600D48841 /* libFTPKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFTPKit.a;
+			remoteRef = 0A9F35971D9C282600D48841 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A9F359A1D9C282600D48841 /* FTPKit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "FTPKit Tests.xctest";
+			remoteRef = 0A9F35991D9C282600D48841 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0A9CFF361D9AE1D9006854D3 /* Resources */ = {
@@ -154,20 +349,85 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4724546D87E0FB6DEED3D5C9 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		95DC1612200B54C0FEF3055C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB42892D3A22F07CC31A32C0 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A9CFF341D9AE1D9006854D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0A9CFF491D9AE1D9006854D3 /* DetailViewController.m in Sources */,
+				0A9F357B1D9C1D2A00D48841 /* Video+CoreDataClass.m in Sources */,
+				0A9F35881D9C218900D48841 /* Routine+CoreDataClass.m in Sources */,
+				0A9F35891D9C218900D48841 /* Routine+CoreDataProperties.m in Sources */,
+				0A9F358E1D9C22DD00D48841 /* Location+CoreDataClass.m in Sources */,
+				0A9F357C1D9C1D2A00D48841 /* Video+CoreDataProperties.m in Sources */,
+				0A9F35831D9C211E00D48841 /* Photo+CoreDataProperties.m in Sources */,
 				0A9CFF461D9AE1D9006854D3 /* MasterViewController.m in Sources */,
 				0A9CFF401D9AE1D9006854D3 /* AppDelegate.m in Sources */,
+				0A9F35A41D9C2A1E00D48841 /* FTPObjectData.m in Sources */,
 				0A9CFF3D1D9AE1D9006854D3 /* main.m in Sources */,
+				0A9F35821D9C211E00D48841 /* Photo+CoreDataClass.m in Sources */,
 				0A9CFF431D9AE1D9006854D3 /* Media_Browser.xcdatamodeld in Sources */,
+				0A9F358F1D9C22DD00D48841 /* Location+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A9F359C1D9C285E00D48841 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FTPKit;
+			targetProxy = 0A9F359B1D9C285E00D48841 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A9CFF4A1D9AE1D9006854D3 /* Main.storyboard */ = {
@@ -219,6 +479,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "Media Browser/Media-Browser-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -265,6 +526,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Media Browser/Media-Browser-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -281,6 +543,7 @@
 		};
 		0A9CFF561D9AE1D9006854D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 815B700695B76BDA1C92C56D /* Pods-Media Browser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FS6KJ5XME6;
@@ -293,6 +556,7 @@
 		};
 		0A9CFF571D9AE1D9006854D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34BCBF28E7234C2FA10F964F /* Pods-Media Browser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FS6KJ5XME6;
@@ -322,6 +586,7 @@
 				0A9CFF571D9AE1D9006854D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
