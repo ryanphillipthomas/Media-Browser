@@ -10,14 +10,13 @@
 #import "DetailViewController.h"
 
 @interface RoutinesTableViewController ()
-
+@property (nonatomic, strong) Location *selectedLocation;
 @end
 
 @implementation RoutinesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self refreshData];
 
 
@@ -43,7 +42,7 @@
 
 - (void)refreshData
 {
-    //[self performSelectorInBackground:@selector(refreshFTPData) withObject:nil];
+    [self performSelectorInBackground:@selector(refreshFTPData) withObject:nil];
 }
 
 - (void)chooseLocation
@@ -62,7 +61,7 @@
 
 - (void)refreshFTPData
 {
-    [[self ftpData] getAllData:^(BOOL performed) {
+    [[self ftpData] getAllRoutinesForLocationPath:self.selectedLocation.locationPath locationID:self.selectedLocation.locationID withCompletion:^(BOOL performed) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
@@ -76,37 +75,31 @@
 }
 
 
-- (void)insertNewObject:(id)sender {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    Location *newEvent = [[Location alloc] initWithContext:context];
-        
-    // If appropriate, configure the new managed object.
-    newEvent.locationID = [NSDate date].description;
-        
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
-}
-
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:location];
+        [controller setDetailItem:routine];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
+    
+    if ([[segue identifier] isEqualToString:@"showLocations"]) {
+        LocationsTableViewController *controller = (LocationsTableViewController *)[[segue destinationViewController] topViewController];
+        [controller setDelegate:self];
+    }
 }
 
+#pragma mark - Locations Delegate
+- (void)didUpdateLocation:(Location *)location
+{
+    [self setTitle:location.name];
+    self.selectedLocation = location;
+    [self refreshFTPData];
+}
 
 #pragma mark - Table View
 
@@ -123,36 +116,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self configureCell:cell withLocation:location];
+    Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self configureCell:cell withRoutine:routine];
     return cell;
 }
 
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-            
-        NSError *error = nil;
-        if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-            abort();
-        }
-    }
-}
-
-
-- (void)configureCell:(UITableViewCell *)cell withLocation:(Location *)location {
-    cell.textLabel.text = location.name;
+- (void)configureCell:(UITableViewCell *)cell withRoutine:(Routine *)routine {
+    cell.textLabel.text = routine.name;
 }
 
 
@@ -231,7 +202,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withLocation:anObject];
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withRoutine:anObject];
             break;
             
         case NSFetchedResultsChangeMove:

@@ -14,9 +14,122 @@
 
 @implementation FTPObjectData
 
+- (void)getAllRoutinesForLocationPath:(NSString *)locationPath
+                           locationID:(NSString *)locationID
+                       withCompletion:(void (^)(BOOL performed))completionBlock
+{
+    if (!locationID || !locationPath) {
+        return;
+    }
+    
+    __block NSString *rootFilePath = @"http://www.actorreplay.com/clients/video_uploader";
+    __block NSInteger routineCounter = 0;
+    
+    _ftp = [FTPClient clientWithHost:@"ftp.actorreplay.com"
+                                port:21
+                            username:@"video@actorreplay.com"
+                            password:@"Ryan1217!"];
+    
+    
+    //Check For New Location Objects
+    [_ftp listContentsAtPath:locationPath showHiddenFiles:NO success:^(NSArray *routineContents) {
+        for (FTPHandle *routineHandle in routineContents) {
+            ++routineCounter;
+            
+            if (routineHandle.type == FTPHandleTypeDirectory) {
+                
+                //Create / Update Routine Objects
+                [Routine createOrUpdateObjectName:routineHandle.name
+                                             date:routineHandle.modified
+                                        routineID:routineHandle.name
+                                      routinePath:routineHandle.path
+                                       locationID:locationID
+                                     thumbnailURL:@""
+                                       completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
+                                            //detect when complete
+                                            if (routineCounter == routineContents.count) {
+                                                if (completionBlock != nil) completionBlock(YES);
+                                            }
+                                           
+                                        }];
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        // Display error...
+        if (completionBlock != nil) completionBlock(YES);
+    }];
+}
+
+- (void)getAllMediaForRoutinePath:(NSString *)routinePath
+                        routineID:(NSString *)routineID
+                   withCompletion:(void (^)(BOOL performed))completionBlock
+{
+    if (!routinePath || !routineID) {
+        return;
+    }
+    
+    __block NSString *rootFilePath = @"http://www.actorreplay.com/clients/video_uploader";
+    __block NSInteger mediaCounter = 0;
+    
+    _ftp = [FTPClient clientWithHost:@"ftp.actorreplay.com"
+                                port:21
+                            username:@"video@actorreplay.com"
+                            password:@"Ryan1217!"];
+    
+    
+    //Check For New Location Objects
+    [_ftp listContentsAtPath:routinePath showHiddenFiles:NO success:^(NSArray *mediaContents) {
+        for (FTPHandle *media in mediaContents) {
+            ++mediaCounter;
+            
+            if (media.type == FTPHandleTypeFile) {
+                
+                NSLog(@"Media Name: %@", media.name);
+                
+                if ([routineID rangeOfString:@"Video"].location != NSNotFound)
+                {
+                    //has video
+                    [Video createOrUpdateObjectName:media.name
+                                               date:media.modified
+                                            videoID:media.name
+                                          routineID:routineID
+                                           mediaURL:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
+                                         completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
+                                             //
+                                             if (mediaCounter == mediaContents.count) {
+                                                 if (completionBlock != nil) completionBlock(YES);
+                                             }
+                                         }];
+                    
+                }
+                
+                if ([routineID rangeOfString:@"Photo"].location != NSNotFound)
+                {
+                    //has photos
+                    [Photo createOrUpdateObjectName:media.name
+                                               date:media.modified
+                                            photoID:media.name
+                                          routineID:routineID
+                                           mediaURL:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
+                                         completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
+                                             //
+                                             if (mediaCounter == mediaContents.count) {
+                                                 if (completionBlock != nil) completionBlock(YES);
+                                             }
+                                         }];
+                }
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        // Display error...
+        if (completionBlock != nil) completionBlock(YES);
+    }];
+}
+
 - (void)getAllLocations:(void (^)(BOOL performed))completionBlock
 {
-    ///good for testing but not for deployment
     __block NSString *rootFilePath = @"http://www.actorreplay.com/clients/video_uploader";
     __block NSInteger locationCounter = 0;
     
@@ -32,14 +145,12 @@
             ++locationCounter;
             
             if (locationHandle.type == FTPHandleTypeDirectory) {
-                // Do something with directory.
-                NSLog(@"Location Name: %@", locationHandle.name);
                 
                 //Create / Update Location Objects
                 [Location createOrUpdateObjectName:locationHandle.name
                                               date:locationHandle.modified
                                         locationID:locationHandle.name
-                                       locationPath:@""
+                                       locationPath:locationHandle.path
                                         completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
                                             //detect when complete
                                             if (locationCounter == locationContents.count) {
@@ -85,7 +196,7 @@
                 [Location createOrUpdateObjectName:locationHandle.name
                                               date:locationHandle.modified
                                         locationID:locationHandle.name
-                                       locationPath:@""
+                                       locationPath:locationHandle.path
                                         completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
                                             //detect when complete
                                             if (locationCounter == locationContents.count) {
@@ -103,7 +214,7 @@
                                                             [Routine createOrUpdateObjectName:routineHandle.name
                                                                                          date:routineHandle.modified
                                                                                     routineID:routineHandle.name
-                                                                                   routinePath:@""
+                                                                                   routinePath:routineHandle.path
                                                                                    locationID:locationHandle.name
                                                                                  thumbnailURL:@""
                                                                                    completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {

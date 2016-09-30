@@ -14,11 +14,14 @@
 @property (nonatomic, strong) FTPClient *ftp;
 
 - (void)getAllData:(void (^)(BOOL performed))completionBlock;
-
 - (void)getAllLocations:(void (^)(BOOL performed))completionBlock;
 
-- (void)getAllRoutinesForLocationURL:(NSString *)locationURL withCompletion:(void (^)(BOOL performed))completionBlock;
+- (void)getAllRoutinesForLocationPath:(NSString *)locationPath
+                           locationID:(NSString *)locationID
+                       withCompletion:(void (^)(BOOL performed))completionBlock;
 
-- (void)getAllMediaForRoutineURL:(NSString *)locationURL withCompletion:(void (^)(BOOL performed))completionBlock;
+- (void)getAllMediaForRoutinePath:(NSString *)routinePath
+                        routineID:(NSString *)routineID
+                   withCompletion:(void (^)(BOOL performed))completionBlock;
 
 @end

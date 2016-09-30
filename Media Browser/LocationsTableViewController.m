@@ -9,7 +9,6 @@
 #import "LocationsTableViewController.h"
 
 @interface LocationsTableViewController ()
-@property (nonatomic, strong) Location *selectedLocation;
 @end
 
 @implementation LocationsTableViewController
@@ -18,7 +17,7 @@
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+     self.clearsSelectionOnViewWillAppear = YES;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"LocationCell"];
 
@@ -103,7 +102,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.delegate didSelectLocation:@""];
+    [self.delegate didUpdateLocation:location];
     [self close];
 }
 

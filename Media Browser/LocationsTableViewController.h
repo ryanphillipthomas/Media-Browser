@@ -13,7 +13,7 @@
 #import <MagicalRecord/MagicalRecord.h>
 
 @protocol LocationsTableViewControllerDelegate <NSObject>
-- (void)didSelectLocation:(NSString *)locationURL;
+- (void)didUpdateLocation:(Location *)location;
 @end
 
 @interface LocationsTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>

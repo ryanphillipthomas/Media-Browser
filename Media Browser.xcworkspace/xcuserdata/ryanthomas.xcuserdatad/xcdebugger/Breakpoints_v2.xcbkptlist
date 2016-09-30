@@ -33,29 +33,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Media Browser/RoutinesTableViewController.m"
-            timestampString = "496887135.193397"
+            filePath = "Media Browser/FTPObjectData.m"
+            timestampString = "496896895.318793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Media Browser/LocationsTableViewController.m"
-            timestampString = "496889883.973412"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-getAllRoutinesForLocationPath:locationID:withCompletion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -66,12 +50,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Media Browser/FTPObjectData.m"
-            timestampString = "496892818.196617"
+            timestampString = "496896895.318793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-getAllLocations:"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-getAllRoutinesForLocationPath:locationID:withCompletion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -82,13 +66,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Media Browser/FTPObjectData.m"
-            timestampString = "496892854.036226"
+            timestampString = "496896895.318793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-getAllLocations:"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-getAllRoutinesForLocationPath:locationID:withCompletion:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FTPObjectData getAllRoutinesForLocationPath:locationID:withCompletion:]"
+                  moduleName = "Media Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryanthomas/Media%20Browser/Media%20Browser/FTPObjectData.m"
+                  timestampString = "496896895.488168"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__73-[FTPObjectData getAllRoutinesForLocationPath:locationID:withCompletion:]_block_invoke"
+                  moduleName = "Media Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryanthomas/Media%20Browser/Media%20Browser/FTPObjectData.m"
+                  timestampString = "496896895.490931"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
