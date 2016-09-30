@@ -30,15 +30,9 @@
     self.navigationItem.rightBarButtonItem = doneButton;
 }
 
-- (void)fetch {
-    NSError *error = nil;
-    BOOL success = [self.fetchedResultsController performFetch:&error];
-    NSAssert2(success, @"Unhandled error performing fetch at LOAddTableViewController, line %d: %@", __LINE__, [error localizedDescription]);
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.fetchedResultsController = nil;
     [self fetch];
 }
 
@@ -113,38 +107,40 @@
 
 #pragma mark - Fetched results controller
 
+- (void)fetch {
+    NSError *error = nil;
+    BOOL success = [self.fetchedResultsController performFetch:&error];
+    NSAssert2(success, @"Unhandled error performing fetch at LocationsTableViewContoller, line %d: %@", __LINE__, [error localizedDescription]);
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
 - (NSFetchedResultsController<Location *> *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
     
-    NSFetchRequest<Location *> *fetchRequest = Location.fetchRequest;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:context];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
+    [fetchRequest setEntity:entity];
     
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
+    NSFetchedResultsController *afetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                                managedObjectContext:context
+                                                                                                  sectionNameKeyPath:nil
+                                                                                                           cacheName:nil];
     
-    NSFetchedResultsController<Location *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Locations"];
-    aFetchedResultsController.delegate = self;
+    afetchedResultsController.delegate = self;
     
-    NSError *error = nil;
-    if (![aFetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
-    
-    _fetchedResultsController = aFetchedResultsController;
+    _fetchedResultsController = afetchedResultsController;
     return _fetchedResultsController;
 }
 

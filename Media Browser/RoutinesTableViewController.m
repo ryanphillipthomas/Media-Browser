@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self refreshData];
 
 
@@ -38,6 +39,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
+    
+    self.fetchedResultsController = nil;
+    [self fetch];
 }
 
 - (void)refreshData
@@ -129,38 +133,44 @@
 
 #pragma mark - Fetched results controller
 
+- (void)fetch {
+    NSError *error = nil;
+    BOOL success = [self.fetchedResultsController performFetch:&error];
+    NSAssert2(success, @"Unhandled error performing fetch at LOAddTableViewController, line %d: %@", __LINE__, [error localizedDescription]);
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
+
 - (NSFetchedResultsController<Routine *> *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
     
-    NSFetchRequest<Routine *> *fetchRequest = Routine.fetchRequest;
-    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Routine" inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"location.locationID == %@", self.selectedLocation.locationID];
+
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
-    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
 
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
 
-    NSFetchedResultsController<Routine *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Routines"];
-    aFetchedResultsController.delegate = self;
+    NSFetchedResultsController *afetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                    managedObjectContext:context
+                                                                      sectionNameKeyPath:nil
+                                                                               cacheName:nil];
     
-    NSError *error = nil;
-    if (![aFetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
+    afetchedResultsController.delegate = self;
     
-    _fetchedResultsController = aFetchedResultsController;
+    _fetchedResultsController = afetchedResultsController;
     return _fetchedResultsController;
 }
 

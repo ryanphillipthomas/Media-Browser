@@ -28,6 +28,7 @@
 		0A9F35A11D9C289300D48841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9F35A01D9C289300D48841 /* Foundation.framework */; };
 		0A9F35A41D9C2A1E00D48841 /* FTPObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */; };
 		0A9F35D91D9DD10C00D48841 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */; };
+		0AAE33081D9E19540074B073 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AAE33071D9E19540074B073 /* AVFoundation.framework */; };
 		DCDFA54AB3B09BC767726199 /* libPods-Media Browser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPObjectData.m; sourceTree = "<group>"; };
 		0A9F35D71D9DD10C00D48841 /* LocationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
 		0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
+		0AAE33071D9E19540074B073 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		34BCBF28E7234C2FA10F964F /* Pods-Media Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.release.xcconfig"; sourceTree = "<group>"; };
 		5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Media Browser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		815B700695B76BDA1C92C56D /* Pods-Media Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AAE33081D9E19540074B073 /* AVFoundation.framework in Frameworks */,
 				0A9F35A11D9C289300D48841 /* Foundation.framework in Frameworks */,
 				0A9F359F1D9C288700D48841 /* CFNetwork.framework in Frameworks */,
 				0A9F359D1D9C287900D48841 /* libFTPKit.a in Frameworks */,
@@ -243,6 +246,7 @@
 		2EE14F5E81FEBF1368676DDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AAE33071D9E19540074B073 /* AVFoundation.framework */,
 				0A9F35A01D9C289300D48841 /* Foundation.framework */,
 				0A9F359E1D9C288700D48841 /* CFNetwork.framework */,
 				0A9F35921D9C282600D48841 /* FTPKit.xcodeproj */,
