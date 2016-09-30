@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
-#import "MasterViewController.h"
+#import "RoutinesTableViewController.h"
 #import <MagicalRecord/MagicalRecord.h>
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
@@ -35,7 +35,7 @@
     splitViewController.delegate = self;
     
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
+    RoutinesTableViewController *controller = (RoutinesTableViewController *)masterNavigationController.topViewController;
 }
 
 

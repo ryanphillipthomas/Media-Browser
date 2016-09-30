@@ -10,7 +10,7 @@
 		0A9CFF3D1D9AE1D9006854D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF3C1D9AE1D9006854D3 /* main.m */; };
 		0A9CFF401D9AE1D9006854D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF3F1D9AE1D9006854D3 /* AppDelegate.m */; };
 		0A9CFF431D9AE1D9006854D3 /* Media_Browser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF411D9AE1D9006854D3 /* Media_Browser.xcdatamodeld */; };
-		0A9CFF461D9AE1D9006854D3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF451D9AE1D9006854D3 /* MasterViewController.m */; };
+		0A9CFF461D9AE1D9006854D3 /* RoutinesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF451D9AE1D9006854D3 /* RoutinesTableViewController.m */; };
 		0A9CFF491D9AE1D9006854D3 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF481D9AE1D9006854D3 /* DetailViewController.m */; };
 		0A9CFF4C1D9AE1D9006854D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4A1D9AE1D9006854D3 /* Main.storyboard */; };
 		0A9CFF4E1D9AE1D9006854D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */; };
@@ -27,6 +27,7 @@
 		0A9F359F1D9C288700D48841 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9F359E1D9C288700D48841 /* CFNetwork.framework */; };
 		0A9F35A11D9C289300D48841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9F35A01D9C289300D48841 /* Foundation.framework */; };
 		0A9F35A41D9C2A1E00D48841 /* FTPObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */; };
+		0A9F35D91D9DD10C00D48841 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */; };
 		DCDFA54AB3B09BC767726199 /* libPods-Media Browser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */; };
 /* End PBXBuildFile section */
 
@@ -60,8 +61,8 @@
 		0A9CFF3E1D9AE1D9006854D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0A9CFF3F1D9AE1D9006854D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0A9CFF421D9AE1D9006854D3 /* Media_Browser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Media_Browser.xcdatamodel; sourceTree = "<group>"; };
-		0A9CFF441D9AE1D9006854D3 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		0A9CFF451D9AE1D9006854D3 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		0A9CFF441D9AE1D9006854D3 /* RoutinesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutinesTableViewController.h; sourceTree = "<group>"; };
+		0A9CFF451D9AE1D9006854D3 /* RoutinesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutinesTableViewController.m; sourceTree = "<group>"; };
 		0A9CFF471D9AE1D9006854D3 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		0A9CFF481D9AE1D9006854D3 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		0A9CFF4B1D9AE1D9006854D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +97,8 @@
 		0A9F35A01D9C289300D48841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0A9F35A21D9C2A1E00D48841 /* FTPObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPObjectData.h; sourceTree = "<group>"; };
 		0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPObjectData.m; sourceTree = "<group>"; };
+		0A9F35D71D9DD10C00D48841 /* LocationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
+		0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
 		34BCBF28E7234C2FA10F964F /* Pods-Media Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.release.xcconfig"; sourceTree = "<group>"; };
 		5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Media Browser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		815B700695B76BDA1C92C56D /* Pods-Media Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,8 +143,10 @@
 			children = (
 				0A9CFF3E1D9AE1D9006854D3 /* AppDelegate.h */,
 				0A9CFF3F1D9AE1D9006854D3 /* AppDelegate.m */,
-				0A9CFF441D9AE1D9006854D3 /* MasterViewController.h */,
-				0A9CFF451D9AE1D9006854D3 /* MasterViewController.m */,
+				0A9CFF441D9AE1D9006854D3 /* RoutinesTableViewController.h */,
+				0A9CFF451D9AE1D9006854D3 /* RoutinesTableViewController.m */,
+				0A9F35D71D9DD10C00D48841 /* LocationsTableViewController.h */,
+				0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */,
 				0A9CFF471D9AE1D9006854D3 /* DetailViewController.h */,
 				0A9CFF481D9AE1D9006854D3 /* DetailViewController.m */,
 				0A9CFF4A1D9AE1D9006854D3 /* Main.storyboard */,
@@ -408,8 +413,9 @@
 				0A9F35891D9C218900D48841 /* Routine+CoreDataProperties.m in Sources */,
 				0A9F358E1D9C22DD00D48841 /* Location+CoreDataClass.m in Sources */,
 				0A9F357C1D9C1D2A00D48841 /* Video+CoreDataProperties.m in Sources */,
+				0A9F35D91D9DD10C00D48841 /* LocationsTableViewController.m in Sources */,
 				0A9F35831D9C211E00D48841 /* Photo+CoreDataProperties.m in Sources */,
-				0A9CFF461D9AE1D9006854D3 /* MasterViewController.m in Sources */,
+				0A9CFF461D9AE1D9006854D3 /* RoutinesTableViewController.m in Sources */,
 				0A9CFF401D9AE1D9006854D3 /* AppDelegate.m in Sources */,
 				0A9F35A41D9C2A1E00D48841 /* FTPObjectData.m in Sources */,
 				0A9CFF3D1D9AE1D9006854D3 /* main.m in Sources */,

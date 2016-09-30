@@ -14,8 +14,53 @@
 
 @implementation FTPObjectData
 
-- (void)startParsingWithCompletion:(void (^)(BOOL performed))completionBlock
+- (void)getAllLocations:(void (^)(BOOL performed))completionBlock
 {
+    ///good for testing but not for deployment
+    __block NSString *rootFilePath = @"http://www.actorreplay.com/clients/video_uploader";
+    __block NSInteger locationCounter = 0;
+    
+    _ftp = [FTPClient clientWithHost:@"ftp.actorreplay.com"
+                                port:21
+                            username:@"video@actorreplay.com"
+                            password:@"Ryan1217!"];
+    
+    
+    //Check For New Location Objects
+    [_ftp listContentsAtPath:@"/" showHiddenFiles:NO success:^(NSArray *locationContents) {
+        for (FTPHandle *locationHandle in locationContents) {
+            ++locationCounter;
+            
+            if (locationHandle.type == FTPHandleTypeDirectory) {
+                // Do something with directory.
+                NSLog(@"Location Name: %@", locationHandle.name);
+                
+                //Create / Update Location Objects
+                [Location createOrUpdateObjectName:locationHandle.name
+                                              date:locationHandle.modified
+                                        locationID:locationHandle.name
+                                        completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
+                                            //detect when complete
+                                            if (locationCounter == locationContents.count) {
+                                                if (completionBlock != nil) completionBlock(YES);
+                                            }
+
+                                        }];
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        // Display error...
+        if (completionBlock != nil) completionBlock(YES);
+    }];
+}
+
+
+//**
+
+- (void)getAllData:(void (^)(BOOL performed))completionBlock
+{
+    ///good for testing but not for deployment
     __block NSString *rootFilePath = @"http://www.actorreplay.com/clients/video_uploader";
     __block NSInteger locationCounter = 0;
     __block NSInteger routineCounter = 0;
