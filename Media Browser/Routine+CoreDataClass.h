@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)createOrUpdateObjectName:(NSString *)name
                             date:(NSDate *)date
                        routineID:(NSString *)routineID
+                    routinePath:(NSString *)routinePath
                       locationID:(NSString *)locationID
                     thumbnailURL:(NSString *)thumbnailURL
                       completion:(MBSaveCompletionBlock)completionBlock;

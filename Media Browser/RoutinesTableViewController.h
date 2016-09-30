@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Media_Browser+CoreDataModel.h"
 #import "FTPObjectData.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @class DetailViewController;
 

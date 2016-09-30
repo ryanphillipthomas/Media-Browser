@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)createOrUpdateObjectName:(NSString *)name
                             date:(NSDate *)date
                       locationID:(NSString *)locationID
+                      locationPath:(NSString *)locationPath
                       completion:(MBSaveCompletionBlock)completionBlock;
 
 + (void)deleteObjectWithLocationID:(NSString *)locationID

@@ -17,6 +17,7 @@
 + (void)createOrUpdateObjectName:(NSString *)name
                             date:(NSDate *)date
                        routineID:(NSString *)routineID
+                     routinePath:(NSString *)routinePath
                       locationID:(NSString *)locationID
                     thumbnailURL:(NSString *)thumbnailURL
                       completion:(MBSaveCompletionBlock)completionBlock
@@ -48,6 +49,7 @@
             }
             
             routine.routineID = routineID;
+            routine.routinePath = routinePath;
             routine.name = name;
             routine.thumbnailURL = thumbnailURL;
             routine.date = date;

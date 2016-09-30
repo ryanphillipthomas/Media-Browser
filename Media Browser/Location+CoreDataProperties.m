@@ -18,5 +18,6 @@
 @dynamic date;
 @dynamic name;
 @dynamic routines;
+@dynamic locationPath;
 
 @end

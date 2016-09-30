@@ -21,5 +21,6 @@
 @dynamic videos;
 @dynamic photos;
 @dynamic location;
+@dynamic routinePath;
 
 @end

@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSDate *date;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *thumbnailURL;
+@property (nullable, nonatomic, copy) NSString *routinePath;
+
 @property (nullable, nonatomic, retain) NSSet<Video *> *videos;
 @property (nullable, nonatomic, retain) NSSet<Photo *> *photos;
 @property (nullable, nonatomic, retain) NSManagedObject *location;

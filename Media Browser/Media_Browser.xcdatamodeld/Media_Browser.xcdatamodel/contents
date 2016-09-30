@@ -9,6 +9,7 @@
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="locationID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="routines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Routine" inverseName="location" inverseEntity="Routine" syncable="YES"/>
     </entity>
@@ -23,6 +24,7 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="routineID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="routinePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="routines" inverseEntity="Location" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="routine" inverseEntity="Photo" syncable="YES"/>
@@ -37,9 +39,9 @@
     </entity>
     <elements>
         <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
-        <element name="Location" positionX="279" positionY="216" width="128" height="105"/>
-        <element name="Routine" positionX="297" positionY="234" width="128" height="150"/>
-        <element name="Video" positionX="315" positionY="252" width="128" height="120"/>
+        <element name="Location" positionX="279" positionY="216" width="128" height="120"/>
         <element name="Photo" positionX="333" positionY="288" width="128" height="120"/>
+        <element name="Routine" positionX="297" positionY="234" width="128" height="165"/>
+        <element name="Video" positionX="315" positionY="252" width="128" height="120"/>
     </elements>
 </model>

@@ -26,7 +26,7 @@
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                    target:self
-                                                                                   action:@selector(saveAndClose)];
+                                                                                   action:@selector(close)];
     
     self.navigationItem.rightBarButtonItem = doneButton;
 }
@@ -48,7 +48,7 @@
     [self performSelectorInBackground:@selector(refreshFTPData) withObject:nil];
 }
 
-- (void)saveAndClose
+- (void)close
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         //DO NOTHING
@@ -98,6 +98,13 @@
     Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self configureCell:cell withLocation:location];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate didSelectLocation:@""];
+    [self close];
 }
 
 - (void)configureCell:(UITableViewCell *)cell withLocation:(Location *)location {

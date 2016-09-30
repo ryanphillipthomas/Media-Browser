@@ -39,6 +39,7 @@
                 [Location createOrUpdateObjectName:locationHandle.name
                                               date:locationHandle.modified
                                         locationID:locationHandle.name
+                                       locationPath:@""
                                         completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
                                             //detect when complete
                                             if (locationCounter == locationContents.count) {
@@ -57,7 +58,6 @@
 
 
 //**
-
 - (void)getAllData:(void (^)(BOOL performed))completionBlock
 {
     ///good for testing but not for deployment
@@ -85,6 +85,7 @@
                 [Location createOrUpdateObjectName:locationHandle.name
                                               date:locationHandle.modified
                                         locationID:locationHandle.name
+                                       locationPath:@""
                                         completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
                                             //detect when complete
                                             if (locationCounter == locationContents.count) {
@@ -102,6 +103,7 @@
                                                             [Routine createOrUpdateObjectName:routineHandle.name
                                                                                          date:routineHandle.modified
                                                                                     routineID:routineHandle.name
+                                                                                   routinePath:@""
                                                                                    locationID:locationHandle.name
                                                                                  thumbnailURL:@""
                                                                                    completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {

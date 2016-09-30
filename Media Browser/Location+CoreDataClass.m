@@ -14,6 +14,7 @@
 + (void)createOrUpdateObjectName:(NSString *)name
                             date:(NSDate *)date
                       locationID:(NSString *)locationID
+                    locationPath:(NSString *)locationPath
                       completion:(MBSaveCompletionBlock)completionBlock
 {
     __block Location *location;
@@ -31,6 +32,7 @@
             }
             
             location.locationID = locationID;
+            location.locationPath = locationPath;
             location.name = name;
             location.date = date;
         }
