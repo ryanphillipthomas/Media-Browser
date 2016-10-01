@@ -14,10 +14,11 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) Routine *detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) Video *detailItem;
 
-@property (strong, nonatomic) NSFetchedResultsController<Video *> *fetchedResultsController;
+@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @property (nonatomic, strong) FTPObjectData *ftpData;
 
 @end

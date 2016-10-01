@@ -33,29 +33,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Media Browser/MediaCollectionViewController.m"
-            timestampString = "496979496.414158"
+            filePath = "Media Browser/DetailViewController.m"
+            timestampString = "496989867.070715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Media Browser/MediaCollectionViewController.m"
-            timestampString = "496979531.1849"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-configureView"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-addImagePlayerToView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

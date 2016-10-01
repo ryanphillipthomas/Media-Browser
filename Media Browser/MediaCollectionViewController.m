@@ -10,6 +10,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MediaCollectionViewCell.h"
 
+#import "DetailViewController.h"
+
 @import AVFoundation;
 @import AVKit;
 
@@ -53,7 +55,6 @@ static NSString * const reuseIdentifier = @"MediaCell";
     // Update the user interface for the detail item.
     if (self.detailItem) {
         [self setTitle:self.detailItem.name];
-        
         [self saveSelectedRoutineToDefaults];
     }
 }
@@ -123,9 +124,7 @@ static NSString * const reuseIdentifier = @"MediaCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    
-    NSLog(@"%i", [sectionInfo numberOfObjects]);
-    
+        
     return [sectionInfo numberOfObjects];
 }
 
@@ -347,6 +346,25 @@ static NSString * const reuseIdentifier = @"MediaCell";
     }
 }
 
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
+        NSArray *arrayOfIndexPaths = [self.collectionView indexPathsForSelectedItems];
+        NSIndexPath *indexPath = [arrayOfIndexPaths firstObject];
+        
+        if ([self.detailItem.name rangeOfString:@"Video"].location != NSNotFound) {
+            Video *video = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
+            [controller setDetailItem:video];
+        } else if ([self.detailItem.name rangeOfString:@"Photo"].location != NSNotFound) {
+            Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
+            [controller setDetailItem:(Video *)photo]; //lies lies we are not a video, silence the error...
+        }
+    }
+}
 
 #pragma mark <UICollectionViewDelegate>
 

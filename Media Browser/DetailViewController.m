@@ -7,47 +7,80 @@
 //
 
 #import "DetailViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @import AVFoundation;
 @import AVKit;
 
 @interface DetailViewController ()
-
+@property (nonatomic, strong) AVPlayerViewController *aPlayerController;
 @end
 
 @implementation DetailViewController
 
-- (void)configureView {
+- (void)configureViewForVideo {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [NSString stringWithFormat:@"%lu", self.detailItem.photos.count];
+        [self setTitle:self.detailItem.name];
+        [self addVideoPlayerToView];
     }
 }
 
+- (void)configureViewForImage {
+    // Update the user interface for the detail item.
+    if (self.detailItem) {
+        [self setTitle:self.detailItem.name];
+        [self addImagePlayerToView];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-    
-////    // remote file from server:
-    NSURL *videoURL = [[NSURL alloc] initWithString:@"http://www.actorreplay.com/clients/video_uploader/LA/001-Video/lq_Clip_1.mp4"];
+    //[self configureView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([self.detailItem isKindOfClass:[Video class]]) {
+        [self configureViewForVideo];
+    } else if ([self.detailItem isKindOfClass:[Photo class]]) {
+        [self configureViewForImage];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.aPlayerController.player pause];
+}
+
+- (void)addVideoPlayerToView
+{
+    NSURL *videoURL = [[NSURL alloc] initWithString:self.detailItem.mediaURL];
     AVURLAsset *asset = [AVURLAsset assetWithURL: videoURL];
     AVPlayerItem *item = [AVPlayerItem playerItemWithAsset: asset];
-
+    
     // create an AVPlayer
-    AVPlayer * player = [[AVPlayer alloc] initWithPlayerItem: item];
+    AVPlayer * player = [[AVPlayer alloc] initWithPlayerItem:item];
     
     // create a player view controller
-    AVPlayerViewController *controller = [[AVPlayerViewController alloc]init];
-    controller.player = player;
-    [player play];
+    self.aPlayerController = [[AVPlayerViewController alloc] init];
+    self.aPlayerController.player = player;
+    [self.aPlayerController.player play];
     
-     //show the view controller
-    [self addChildViewController:controller];
-    [self.view addSubview:controller.view];
-    controller.view.frame = self.view.frame;
+    //show the view controller
+    [self addChildViewController:self.aPlayerController];
+    [self.view addSubview:self.aPlayerController.view];
+    
+    self.aPlayerController.view.frame = self.view.frame;
+}
+
+- (void)addImagePlayerToView
+{
+    // Here we use the new provided sd_setImageWithURL: method to load the web image
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.detailItem.mediaURL]
+                      placeholderImage:[UIImage imageNamed:@"loadingImage"]];
 }
 
 
@@ -59,15 +92,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(Routine *)newDetailItem {
+- (void)setDetailItem:(Video *)newDetailItem {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
     }
 }
-
-
 
 @end

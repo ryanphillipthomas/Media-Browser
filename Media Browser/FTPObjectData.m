@@ -85,8 +85,6 @@
             
             if (media.type == FTPHandleTypeFile) {
                 
-                NSLog(@"Media Name: %@", media.name);
-                
                 if ([routineID rangeOfString:@"Video"].location != NSNotFound)
                 {
                     //has video
@@ -189,9 +187,6 @@
             ++locationCounter;
 
             if (locationHandle.type == FTPHandleTypeDirectory) {
-                // Do something with directory.
-                NSLog(@"Location Name: %@", locationHandle.name);
-                
                 //Create / Update Location Objects
                 [Location createOrUpdateObjectName:locationHandle.name
                                               date:locationHandle.modified
@@ -207,9 +202,6 @@
                                                         if (routineHandle.type == FTPHandleTypeDirectory) {
                                                             // Do something with directory.
                                                     
-                                                            NSLog(@"Routine Name: %@", routineHandle.name);
-                                                            NSLog(@"Location Name: %@", locationHandle.name);
-
                                                             //Create / Update Routine Objects
                                                             [Routine createOrUpdateObjectName:routineHandle.name
                                                                                          date:routineHandle.modified
@@ -225,8 +217,6 @@
                                                                                                    
                                                                                                    if (media.type == FTPHandleTypeFile) {
                                                                                                        
-                                                                                                       NSLog(@"Media Name: %@", media.name);
-
                                                                                                        if ([routineHandle.name rangeOfString:@"Video"].location != NSNotFound)
                                                                                                        {
                                                                                                            //has video
