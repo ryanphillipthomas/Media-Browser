@@ -49,6 +49,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setBarTintColor:kDarkGreyColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITableViewCell appearance] setTintColor:kDarkGreyColor];
 }
 
 

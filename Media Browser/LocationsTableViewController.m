@@ -9,12 +9,15 @@
 #import "LocationsTableViewController.h"
 
 @interface LocationsTableViewController ()
+@property (nonatomic, strong) Location *selectedLocation;
 @end
 
 @implementation LocationsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self loadSelectedLocationFromDefaults];
     
     // Uncomment the following line to preserve selection between presentations.
      self.clearsSelectionOnViewWillAppear = YES;
@@ -28,6 +31,13 @@
                                                                                    action:@selector(close)];
     
     self.navigationItem.rightBarButtonItem = doneButton;
+}
+
+- (void)loadSelectedLocationFromDefaults
+{
+    NSString *savedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedLocationID"];
+    NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
+    self.selectedLocation = [[Location MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"locationID == %@", savedValue] inContext:context] firstObject];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -97,11 +107,18 @@
 {
     Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate didUpdateLocation:location];
+    self.selectedLocation = location;
     [self close];
 }
 
 - (void)configureCell:(UITableViewCell *)cell withLocation:(Location *)location {
     cell.textLabel.text = location.name;
+    
+    if (location == self.selectedLocation) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
 }
 
 

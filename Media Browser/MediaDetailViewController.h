@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIView *videoView;
 
 @property (nonatomic, strong) FTPObjectData *ftpData;
 

@@ -200,17 +200,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageLoading" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-fS-n6q">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdf-Lg-9g1" userLabel="Video View"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cdf-Lg-9g1" firstAttribute="leading" secondItem="8gp-fS-n6q" secondAttribute="leading" id="Kv4-yx-XG2"/>
+                            <constraint firstItem="cdf-Lg-9g1" firstAttribute="bottom" secondItem="ByS-47-QUm" secondAttribute="top" id="KxL-2X-fQu"/>
                             <constraint firstItem="8gp-fS-n6q" firstAttribute="top" secondItem="czt-4P-Lga" secondAttribute="bottom" id="LS5-Gd-nCe"/>
                             <constraint firstItem="8gp-fS-n6q" firstAttribute="leading" secondItem="BnY-zO-BFy" secondAttribute="leading" id="S0L-fD-vva"/>
+                            <constraint firstItem="cdf-Lg-9g1" firstAttribute="top" secondItem="8gp-fS-n6q" secondAttribute="top" id="Vek-gk-RWJ"/>
+                            <constraint firstItem="cdf-Lg-9g1" firstAttribute="trailing" secondItem="8gp-fS-n6q" secondAttribute="trailing" id="can-px-xUW"/>
                             <constraint firstAttribute="trailing" secondItem="8gp-fS-n6q" secondAttribute="trailing" id="eZt-BG-EFL"/>
                             <constraint firstItem="8gp-fS-n6q" firstAttribute="bottom" secondItem="ByS-47-QUm" secondAttribute="top" id="tqh-oW-Iwf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="8gp-fS-n6q" id="xEP-cJ-ZJG"/>
+                        <outlet property="videoView" destination="cdf-Lg-9g1" id="MZd-iW-FFH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfG-1R-7Pk" userLabel="First Responder" sceneMemberID="firstResponder"/>

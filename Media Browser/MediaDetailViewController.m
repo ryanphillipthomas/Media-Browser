@@ -71,9 +71,9 @@
     
     //show the view controller
     [self addChildViewController:self.aPlayerController];
-    [self.view addSubview:self.aPlayerController.view];
+    [self.videoView addSubview:self.aPlayerController.view];
     
-    self.aPlayerController.view.frame = self.view.frame;
+    self.aPlayerController.view.frame = self.videoView.frame;
 }
 
 - (void)addImagePlayerToView
