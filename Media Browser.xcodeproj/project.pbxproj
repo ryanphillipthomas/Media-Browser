@@ -29,6 +29,8 @@
 		0A9F35A41D9C2A1E00D48841 /* FTPObjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35A31D9C2A1E00D48841 /* FTPObjectData.m */; };
 		0A9F35D91D9DD10C00D48841 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */; };
 		0AAE33081D9E19540074B073 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AAE33071D9E19540074B073 /* AVFoundation.framework */; };
+		0AAE33111D9F14420074B073 /* MediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE33101D9F14420074B073 /* MediaCollectionViewController.m */; };
+		0AAE33141D9F23B70074B073 /* MediaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE33131D9F23B70074B073 /* MediaCollectionViewCell.m */; };
 		DCDFA54AB3B09BC767726199 /* libPods-Media Browser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,10 @@
 		0A9F35D71D9DD10C00D48841 /* LocationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
 		0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
 		0AAE33071D9E19540074B073 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0AAE330F1D9F14420074B073 /* MediaCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaCollectionViewController.h; sourceTree = "<group>"; };
+		0AAE33101D9F14420074B073 /* MediaCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaCollectionViewController.m; sourceTree = "<group>"; };
+		0AAE33121D9F23B70074B073 /* MediaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaCollectionViewCell.h; sourceTree = "<group>"; };
+		0AAE33131D9F23B70074B073 /* MediaCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaCollectionViewCell.m; sourceTree = "<group>"; };
 		34BCBF28E7234C2FA10F964F /* Pods-Media Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.release.xcconfig"; sourceTree = "<group>"; };
 		5FFADC3E1E01BBCE959DEE30 /* libPods-Media Browser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Media Browser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		815B700695B76BDA1C92C56D /* Pods-Media Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Media Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Media Browser/Pods-Media Browser.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +152,10 @@
 			children = (
 				0A9CFF3E1D9AE1D9006854D3 /* AppDelegate.h */,
 				0A9CFF3F1D9AE1D9006854D3 /* AppDelegate.m */,
+				0AAE330F1D9F14420074B073 /* MediaCollectionViewController.h */,
+				0AAE33101D9F14420074B073 /* MediaCollectionViewController.m */,
+				0AAE33121D9F23B70074B073 /* MediaCollectionViewCell.h */,
+				0AAE33131D9F23B70074B073 /* MediaCollectionViewCell.m */,
 				0A9CFF441D9AE1D9006854D3 /* RoutinesTableViewController.h */,
 				0A9CFF451D9AE1D9006854D3 /* RoutinesTableViewController.m */,
 				0A9F35D71D9DD10C00D48841 /* LocationsTableViewController.h */,
@@ -413,9 +423,11 @@
 			files = (
 				0A9CFF491D9AE1D9006854D3 /* DetailViewController.m in Sources */,
 				0A9F357B1D9C1D2A00D48841 /* Video+CoreDataClass.m in Sources */,
+				0AAE33141D9F23B70074B073 /* MediaCollectionViewCell.m in Sources */,
 				0A9F35881D9C218900D48841 /* Routine+CoreDataClass.m in Sources */,
 				0A9F35891D9C218900D48841 /* Routine+CoreDataProperties.m in Sources */,
 				0A9F358E1D9C22DD00D48841 /* Location+CoreDataClass.m in Sources */,
+				0AAE33111D9F14420074B073 /* MediaCollectionViewController.m in Sources */,
 				0A9F357C1D9C1D2A00D48841 /* Video+CoreDataProperties.m in Sources */,
 				0A9F35D91D9DD10C00D48841 /* LocationsTableViewController.m in Sources */,
 				0A9F35831D9C211E00D48841 /* Photo+CoreDataProperties.m in Sources */,

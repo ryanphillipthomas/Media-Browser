@@ -1,8 +1,8 @@
 //
-//  DetailViewController.h
+//  MediaCollectionViewController.h
 //  Media Browser
 //
-//  Created by Ryan Thomas on 9/27/16.
+//  Created by Ryan Thomas on 9/30/16.
 //  Copyright © 2016 Ryan Thomas. All rights reserved.
 //
 
@@ -12,13 +12,11 @@
 #import "FTPObjectData.h"
 #import <MagicalRecord/MagicalRecord.h>
 
-@interface DetailViewController : UIViewController
+@interface MediaCollectionViewController : UICollectionViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) Routine *detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
-@property (strong, nonatomic) NSFetchedResultsController<Video *> *fetchedResultsController;
 @property (nonatomic, strong) FTPObjectData *ftpData;
 
 @end
-

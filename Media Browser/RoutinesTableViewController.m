@@ -7,7 +7,7 @@
 //
 
 #import "RoutinesTableViewController.h"
-#import "DetailViewController.h"
+#import "MediaCollectionViewController.h"
 
 @interface RoutinesTableViewController ()
 @property (nonatomic, strong) Location *selectedLocation;
@@ -32,7 +32,7 @@
     self.navigationItem.leftBarButtonItem = locationButton;
     self.navigationItem.rightBarButtonItem = refreshButton;
     
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.mediaCollectionViewController = (MediaCollectionViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 
@@ -85,7 +85,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        MediaCollectionViewController *controller = (MediaCollectionViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:routine];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;

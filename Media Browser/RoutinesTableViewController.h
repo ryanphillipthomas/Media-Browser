@@ -13,11 +13,11 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import "LocationsTableViewController.h"
 
-@class DetailViewController;
+@class MediaCollectionViewController;
 
 @interface RoutinesTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, LocationsTableViewControllerDelegate>
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) MediaCollectionViewController *mediaCollectionViewController;
 @property (strong, nonatomic) NSFetchedResultsController<Routine *> *fetchedResultsController;
 
 @property (nonatomic, strong) FTPObjectData *ftpData;
