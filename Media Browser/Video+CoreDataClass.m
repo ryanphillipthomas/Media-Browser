@@ -43,7 +43,7 @@
                 routine = [fetchedRoutine MR_inContext:localContext];
             }
             
-            video.videoID = videoID;
+            video.videoID = mediaURL;
             video.name = name;
             video.mediaURL = mediaURL;
             video.date = date;

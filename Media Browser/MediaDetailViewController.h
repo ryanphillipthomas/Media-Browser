@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  MediaDetailViewController.h
 //  Media Browser
 //
 //  Created by Ryan Thomas on 9/27/16.
@@ -12,7 +12,7 @@
 #import "FTPObjectData.h"
 #import <MagicalRecord/MagicalRecord.h>
 
-@interface DetailViewController : UIViewController
+@interface MediaDetailViewController : UIViewController
 
 @property (strong, nonatomic) Video *detailItem;
 

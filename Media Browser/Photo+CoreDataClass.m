@@ -43,7 +43,7 @@
                 routine = [fetchedRoutine MR_inContext:localContext];
             }
             
-            photo.photoID = photoID;
+            photo.photoID = mediaURL;
             photo.name = name;
             photo.mediaURL = mediaURL;
             photo.date = date;

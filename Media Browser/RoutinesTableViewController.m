@@ -40,6 +40,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     
     self.fetchedResultsController = nil;

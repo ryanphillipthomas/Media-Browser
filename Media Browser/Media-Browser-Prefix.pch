@@ -26,4 +26,6 @@
 
 typedef void (^MBSaveCompletionBlock)(BOOL success, NSManagedObjectID *objectID,  NSError *error);
 
+#define kDarkGreyColor [UIColor colorWithRed:0.078 green:0.078 blue:0.078 alpha:1.00]
+
 #endif

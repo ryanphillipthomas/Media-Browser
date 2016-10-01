@@ -48,7 +48,7 @@
                 location = [fetchedLocation MR_inContext:localContext];
             }
             
-            routine.routineID = routineID;
+            routine.routineID = routinePath;
             routine.routinePath = routinePath;
             routine.name = name;
             routine.thumbnailURL = thumbnailURL;

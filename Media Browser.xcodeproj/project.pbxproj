@@ -11,7 +11,7 @@
 		0A9CFF401D9AE1D9006854D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF3F1D9AE1D9006854D3 /* AppDelegate.m */; };
 		0A9CFF431D9AE1D9006854D3 /* Media_Browser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF411D9AE1D9006854D3 /* Media_Browser.xcdatamodeld */; };
 		0A9CFF461D9AE1D9006854D3 /* RoutinesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF451D9AE1D9006854D3 /* RoutinesTableViewController.m */; };
-		0A9CFF491D9AE1D9006854D3 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF481D9AE1D9006854D3 /* DetailViewController.m */; };
+		0A9CFF491D9AE1D9006854D3 /* MediaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CFF481D9AE1D9006854D3 /* MediaDetailViewController.m */; };
 		0A9CFF4C1D9AE1D9006854D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4A1D9AE1D9006854D3 /* Main.storyboard */; };
 		0A9CFF4E1D9AE1D9006854D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */; };
 		0A9CFF511D9AE1D9006854D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CFF4F1D9AE1D9006854D3 /* LaunchScreen.storyboard */; };
@@ -66,8 +66,8 @@
 		0A9CFF421D9AE1D9006854D3 /* Media_Browser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Media_Browser.xcdatamodel; sourceTree = "<group>"; };
 		0A9CFF441D9AE1D9006854D3 /* RoutinesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutinesTableViewController.h; sourceTree = "<group>"; };
 		0A9CFF451D9AE1D9006854D3 /* RoutinesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutinesTableViewController.m; sourceTree = "<group>"; };
-		0A9CFF471D9AE1D9006854D3 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		0A9CFF481D9AE1D9006854D3 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		0A9CFF471D9AE1D9006854D3 /* MediaDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaDetailViewController.h; sourceTree = "<group>"; };
+		0A9CFF481D9AE1D9006854D3 /* MediaDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaDetailViewController.m; sourceTree = "<group>"; };
 		0A9CFF4B1D9AE1D9006854D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A9CFF501D9AE1D9006854D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 				0A9CFF451D9AE1D9006854D3 /* RoutinesTableViewController.m */,
 				0A9F35D71D9DD10C00D48841 /* LocationsTableViewController.h */,
 				0A9F35D81D9DD10C00D48841 /* LocationsTableViewController.m */,
-				0A9CFF471D9AE1D9006854D3 /* DetailViewController.h */,
-				0A9CFF481D9AE1D9006854D3 /* DetailViewController.m */,
+				0A9CFF471D9AE1D9006854D3 /* MediaDetailViewController.h */,
+				0A9CFF481D9AE1D9006854D3 /* MediaDetailViewController.m */,
 				0A9CFF4A1D9AE1D9006854D3 /* Main.storyboard */,
 				0A9CFF4F1D9AE1D9006854D3 /* LaunchScreen.storyboard */,
 				0A9CFF4D1D9AE1D9006854D3 /* Assets.xcassets */,
@@ -421,7 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9CFF491D9AE1D9006854D3 /* DetailViewController.m in Sources */,
+				0A9CFF491D9AE1D9006854D3 /* MediaDetailViewController.m in Sources */,
 				0A9F357B1D9C1D2A00D48841 /* Video+CoreDataClass.m in Sources */,
 				0AAE33141D9F23B70074B073 /* MediaCollectionViewCell.m in Sources */,
 				0A9F35881D9C218900D48841 /* Routine+CoreDataClass.m in Sources */,

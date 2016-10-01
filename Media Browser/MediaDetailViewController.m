@@ -1,22 +1,22 @@
 //
-//  DetailViewController.m
+//  MediaDetailViewController.m
 //  Media Browser
 //
 //  Created by Ryan Thomas on 9/27/16.
 //  Copyright © 2016 Ryan Thomas. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "MediaDetailViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @import AVFoundation;
 @import AVKit;
 
-@interface DetailViewController ()
+@interface MediaDetailViewController ()
 @property (nonatomic, strong) AVPlayerViewController *aPlayerController;
 @end
 
-@implementation DetailViewController
+@implementation MediaDetailViewController
 
 - (void)configureViewForVideo {
     // Update the user interface for the detail item.
@@ -80,7 +80,7 @@
 {
     // Here we use the new provided sd_setImageWithURL: method to load the web image
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.detailItem.mediaURL]
-                      placeholderImage:[UIImage imageNamed:@"loadingImage"]];
+                      placeholderImage:[UIImage imageNamed:@"imageLoading"]];
 }
 
 

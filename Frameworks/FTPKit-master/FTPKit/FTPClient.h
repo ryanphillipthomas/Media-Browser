@@ -33,7 +33,6 @@
 /**
  Factory method to create FTPClient instance.
  
- @param FTPLocation The location's credentials
  @return FTPClient
  */
 + (instancetype)clientWithCredentials:(FTPCredentials *)credentials;
@@ -52,7 +51,6 @@
 /**
  Create an instance of FTPClient.
  
- @param FTPLocation The location's credentials
  @return FTPClient
  */
 - (instancetype)initWithCredentials:(FTPCredentials *)credentials;
@@ -81,7 +79,6 @@
  List directory contents at path.
  
  @param path Path to remote directory to list.
- @param showHiddenItems Show hidden items in directory.
  @return List of contents as FTPHandle objects.
  */
 - (NSArray *)listContentsAtPath:(NSString *)path showHiddenFiles:(BOOL)showHiddenFiles;
@@ -92,7 +89,6 @@
  This adds the ability to perform the operation asynchronously.
  
  @param path Path to remote directory to list.
- @param showHiddenItems Show hidden items in directory.
  @param success Method called when process succeeds. Provides list of contents
         as FTPHandle objects.
  @param failure Method called when process fails.
@@ -105,7 +101,6 @@
  List directory contents at handle's location.
  
  @param handle Remote directory handle to list.
- @param showHiddenItems Show hidden items in directory.
  @return List of contents as FTPHandle objects.
  */
 - (NSArray *)listContentsAtHandle:(FTPHandle *)handle showHiddenFiles:(BOOL)showHiddenFiles;
@@ -115,7 +110,6 @@
  
  This adds the ability to perform the operation asynchronously.
  
- @param showHiddenItems Show hidden items in directory.
  @param success Method called when process succeeds. Provides list of contents
         as FTPHandle objects.
  @param failure Method called when process fails.
@@ -127,7 +121,6 @@
 /**
  Download remote file path to local path.
  
- @param fileName Full path of remote file to download.
  @param localPath Local path to download file to.
  @param progress Calls after data has been received to remote server.
         Return NO to cancel the operation.
@@ -141,7 +134,6 @@
  
  This adds the ability to perform the operation asynchronously.
  
- @param fileName Full path of remote file to download.
  @param localPath Local path to download file to.
  @param progress Calls after data has been received to remote server.
         Return NO to cancel the operation.
@@ -186,7 +178,6 @@
  Upload file to specific directory on remote server.
  
  @param localPath Path of local file to upload.
- @param toPath Remote path where file will be uploaded to.
  @param progress Calls after data has been sent to remote server.
         Return NO to cancel the operation.
  @return YES on success. NO on failure.
@@ -200,7 +191,6 @@
  This adds the ability to perform the operation asynchronously.
  
  @param localPath Path of local file to upload.
- @param toPath Remote path where file will be uploaded to.
  @param progress Calls after data has been sent to remote server.
         Return NO to cancel the operation.
  @param success Method called when process succeeds.
@@ -233,8 +223,6 @@
 /**
  Create remote directory within the handle's location.
  
- @param directoryName Name of directory to create on remote server.
- @param remotePath Path to remote directory where file should be created.
  @return YES on success. NO on failure.
  */
 - (BOOL)createDirectoryAtHandle:(FTPHandle *)handle;
@@ -244,8 +232,6 @@
  
  This adds the ability to perform the operation asynchronously.
  
- @param directoryName Name of directory to create on remote server.
- @param remotePath Path to remote directory where file should be created.
  @param success Method called when process succeeds.
  @param failure Method called when process fails.
  */

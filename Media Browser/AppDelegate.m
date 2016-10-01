@@ -23,6 +23,8 @@
     
     [self setupCoreData];
     [self setupUX];
+    [self setupStyle];
+
 
     return YES;
 }
@@ -36,6 +38,17 @@
     
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
     RoutinesTableViewController *controller = (RoutinesTableViewController *)masterNavigationController.topViewController;
+}
+
+- (void)setupStyle
+{
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UINavigationBar appearance] setBarTintColor:kDarkGreyColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 

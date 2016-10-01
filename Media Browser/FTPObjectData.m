@@ -41,7 +41,7 @@
                 //Create / Update Routine Objects
                 [Routine createOrUpdateObjectName:routineHandle.name
                                              date:routineHandle.modified
-                                        routineID:routineHandle.name
+                                        routineID:routineHandle.path
                                       routinePath:routineHandle.path
                                        locationID:locationID
                                      thumbnailURL:@""
@@ -90,7 +90,7 @@
                     //has video
                     [Video createOrUpdateObjectName:media.name
                                                date:media.modified
-                                            videoID:media.name
+                                            videoID:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                           routineID:routineID
                                            mediaURL:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                          completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
@@ -107,7 +107,7 @@
                     //has photos
                     [Photo createOrUpdateObjectName:media.name
                                                date:media.modified
-                                            photoID:media.name
+                                            photoID:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                           routineID:routineID
                                            mediaURL:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                          completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
@@ -205,7 +205,7 @@
                                                             //Create / Update Routine Objects
                                                             [Routine createOrUpdateObjectName:routineHandle.name
                                                                                          date:routineHandle.modified
-                                                                                    routineID:routineHandle.name
+                                                                                    routineID:routineHandle.path
                                                                                    routinePath:routineHandle.path
                                                                                    locationID:locationHandle.name
                                                                                  thumbnailURL:@""
@@ -222,7 +222,7 @@
                                                                                                            //has video
                                                                                                            [Video createOrUpdateObjectName:media.name
                                                                                                                                       date:media.modified
-                                                                                                                                   videoID:media.name
+                                                                                                                                   videoID:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                                                                                                                  routineID:routineHandle.name
                                                                                                                                   mediaURL:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                                                                                                                 completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
@@ -239,7 +239,7 @@
                                                                                                            //has photos
                                                                                                            [Photo createOrUpdateObjectName:media.name
                                                                                                                                       date:media.modified
-                                                                                                                                   photoID:media.name
+                                                                                                                                   photoID:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                                                                                                                  routineID:routineHandle.name
                                                                                                                                   mediaURL:[NSString stringWithFormat:@"%@/%@", rootFilePath, media.path]
                                                                                                                                 completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {

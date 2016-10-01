@@ -9,8 +9,7 @@
 #import "MediaCollectionViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MediaCollectionViewCell.h"
-
-#import "DetailViewController.h"
+#import "MediaDetailViewController.h"
 
 @import AVFoundation;
 @import AVKit;
@@ -175,7 +174,7 @@ static NSString * const reuseIdentifier = @"MediaCell";
             [self loadThumbNailForVideo:video];
         });
 
-        image = [UIImage imageNamed:@"loadingImage"];
+        image = [UIImage imageNamed:@"imageLoading"];
     }
     
     [cell.imageView setImage:image];
@@ -184,7 +183,7 @@ static NSString * const reuseIdentifier = @"MediaCell";
 - (void)configureCell:(MediaCollectionViewCell *)cell withPhoto:(Photo *)photo {
     // Here we use the new provided sd_setImageWithURL: method to load the web image
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.mediaURL]
-                      placeholderImage:[UIImage imageNamed:@"loadingImage"]];
+                      placeholderImage:[UIImage imageNamed:@"imageLoading"]];
 }
 
 #pragma mark - Fetched results controller
@@ -356,11 +355,11 @@ static NSString * const reuseIdentifier = @"MediaCell";
         
         if ([self.detailItem.name rangeOfString:@"Video"].location != NSNotFound) {
             Video *video = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
+            MediaDetailViewController *controller = (MediaDetailViewController *)[segue destinationViewController];
             [controller setDetailItem:video];
         } else if ([self.detailItem.name rangeOfString:@"Photo"].location != NSNotFound) {
             Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
+            MediaDetailViewController *controller = (MediaDetailViewController *)[segue destinationViewController];
             [controller setDetailItem:(Video *)photo]; //lies lies we are not a video, silence the error...
         }
     }
