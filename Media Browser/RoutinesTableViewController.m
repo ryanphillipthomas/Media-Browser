@@ -103,9 +103,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
         Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
         MediaCollectionViewController *controller = (MediaCollectionViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:routine];
+        
+        if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+            [UIView animateWithDuration:0.2f animations:^{
+                self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden;
+            } completion:^(BOOL finished) {
+                self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
+            }];
+        }
     }
     
     if ([[segue identifier] isEqualToString:@"showLocations"]) {

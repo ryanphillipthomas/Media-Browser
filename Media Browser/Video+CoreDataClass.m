@@ -9,6 +9,9 @@
 #import "Video+CoreDataClass.h"
 #import "Routine+CoreDataClass.h"
 
+@import AVFoundation;
+@import AVKit;
+
 @implementation Video
 
 + (void)createOrUpdateObjectName:(NSString *)name
@@ -50,6 +53,11 @@
             
             if (nil == video.routine) {
                 [video setRoutine:routine];
+            }
+            
+            if (nil == video.image) {
+                NSData *imageData = UIImagePNGRepresentation([self thumbNailForVideo:video]);
+                video.image = imageData;
             }
         }
         
@@ -119,6 +127,19 @@
             if (completionBlock != nil) completionBlock(YES, nil, nil);
         });
     }
+}
+
++ (UIImage *)thumbNailForVideo:(Video *)video
+{
+    NSURL *urlVideo = [NSURL URLWithString:video.mediaURL];
+    AVAsset *asset = [AVAsset assetWithURL:urlVideo];
+    AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
+    CMTime time = CMTimeMake(1, 1);
+    CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
+    UIImage* thumbnail = [[UIImage alloc] initWithCGImage:imageRef scale:UIViewContentModeScaleAspectFit orientation:UIImageOrientationUp];
+    CGImageRelease(imageRef);  // CGImageRef won't be released by ARC
+    
+    return thumbnail;
 }
 
 @end

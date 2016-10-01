@@ -105,6 +105,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate didUpdateLocation:location];
     self.selectedLocation = location;

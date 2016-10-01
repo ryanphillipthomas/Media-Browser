@@ -58,8 +58,7 @@
 - (void)addVideoPlayerToView
 {
     NSURL *videoURL = [[NSURL alloc] initWithString:self.detailItem.mediaURL];
-    AVURLAsset *asset = [AVURLAsset assetWithURL: videoURL];
-    AVPlayerItem *item = [AVPlayerItem playerItemWithAsset: asset];
+    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:videoURL];
     
     // create an AVPlayer
     AVPlayer * player = [[AVPlayer alloc] initWithPlayerItem:item];

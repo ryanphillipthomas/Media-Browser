@@ -50,6 +50,10 @@
     [[UINavigationBar appearance] setBarTintColor:kDarkGreyColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITableViewCell appearance] setTintColor:kDarkGreyColor];
+    
+    UIView *selectionView = [UIView new];
+    selectionView.backgroundColor = [UIColor colorWithRed:0.294 green:0.314 blue:0.322 alpha:1.00];;
+    [[UITableViewCell appearance] setSelectedBackgroundView:selectionView];
 }
 
 

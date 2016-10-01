@@ -32,7 +32,7 @@ static NSString * const reuseIdentifier = @"MediaCell";
     [self loadSelectedRoutineFromDefaults];
 
     // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+     self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
     //[self.collectionView registerClass:[MediaCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -143,24 +143,6 @@ static NSString * const reuseIdentifier = @"MediaCell";
     return cell;
 }
 
--(UIImage *)loadThumbNailForVideo:(Video *)video
-{
-    NSURL *urlVideo = [NSURL URLWithString:video.mediaURL];
-    AVAsset *asset = [AVAsset assetWithURL:urlVideo];
-    AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
-    CMTime time = CMTimeMake(1, 1);
-    CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-    UIImage* thumbnail = [[UIImage alloc] initWithCGImage:imageRef scale:UIViewContentModeScaleAspectFit orientation:UIImageOrientationUp];
-    CGImageRelease(imageRef);  // CGImageRef won't be released by ARC
-    
-    [Video updateImage:thumbnail forVideoID:video.videoID completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
-    }];
-    
-    return thumbnail;
-}
 
 - (void)configureCell:(MediaCollectionViewCell *)cell withVideo:(Video *)video {    
     // Here we use the new provided sd_setImageWithURL: method to load the web image
@@ -168,11 +150,6 @@ static NSString * const reuseIdentifier = @"MediaCell";
     UIImage *image = [UIImage imageWithData:video.image];
     
     if (!image) {
-        
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-            //Background Thread
-            [self loadThumbNailForVideo:video];
-        });
 
         image = [UIImage imageNamed:@"imageLoading"];
     }
