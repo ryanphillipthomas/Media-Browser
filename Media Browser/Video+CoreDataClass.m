@@ -60,6 +60,35 @@
     }];
 }
 
++ (void)updateImage:(UIImage *)image
+         forVideoID:(NSString *)videoID
+         completion:(MBSaveCompletionBlock)completionBlock
+{
+    __block Video *video;
+    __block Video *fetchedVideo;
+    
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        @autoreleasepool {
+            
+            fetchedVideo = [[Video MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"videoID = %@", videoID] inContext:localContext] firstObject];
+            
+            if (!fetchedVideo) {
+                video = [Video MR_createEntityInContext:localContext];
+            } else {
+                video = [fetchedVideo MR_inContext:localContext];
+            }
+            
+            NSData *imageData = UIImagePNGRepresentation(image);
+            video.image = imageData;
+        }
+        
+    } completion:^(BOOL success, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(),^{
+            if (completionBlock != nil) completionBlock(YES, nil, nil);
+        });
+    }];
+}
+
 + (void)deleteObjectWithVideoID:(NSString *)videoID
                      completion:(MBSaveCompletionBlock)completionBlock
 {

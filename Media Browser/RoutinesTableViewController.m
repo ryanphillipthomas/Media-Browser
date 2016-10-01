@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self loadSelectedLocationFromDefaults];
+    
     [self refreshData];
 
 
@@ -73,6 +75,22 @@
     }];
 }
 
+- (void)loadSelectedLocationFromDefaults
+{
+    NSString *savedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedLocationID"];
+    NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
+    self.selectedLocation = [[Location MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"locationID == %@", savedValue] inContext:context] firstObject];
+    
+    [self setTitle:self.selectedLocation.name];
+}
+
+- (void)saveSelectedLocationToDefaults
+{
+    NSString *locationID = self.selectedLocation.locationID;
+    [[NSUserDefaults standardUserDefaults] setObject:locationID forKey:@"selectedLocationID"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,8 +105,6 @@
         Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
         MediaCollectionViewController *controller = (MediaCollectionViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:routine];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
     
     if ([[segue identifier] isEqualToString:@"showLocations"]) {
@@ -102,6 +118,7 @@
 {
     [self setTitle:location.name];
     self.selectedLocation = location;
+    [self saveSelectedLocationToDefaults];
     [self refreshFTPData];
 }
 

@@ -32,6 +32,7 @@
     </entity>
     <entity name="Video" representedClassName="Video" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="mediaURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="videoID" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,6 +43,6 @@
         <element name="Location" positionX="279" positionY="216" width="128" height="120"/>
         <element name="Photo" positionX="333" positionY="288" width="128" height="120"/>
         <element name="Routine" positionX="297" positionY="234" width="128" height="165"/>
-        <element name="Video" positionX="315" positionY="252" width="128" height="120"/>
+        <element name="Video" positionX="315" positionY="252" width="128" height="135"/>
     </elements>
 </model>

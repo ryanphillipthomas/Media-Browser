@@ -19,5 +19,6 @@
 @dynamic date;
 @dynamic videoID;
 @dynamic routine;
+@dynamic image;
 
 @end

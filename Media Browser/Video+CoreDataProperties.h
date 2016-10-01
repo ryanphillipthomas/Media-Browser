@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSDate *date;
 @property (nullable, nonatomic, copy) NSString *videoID;
 @property (nullable, nonatomic, retain) NSManagedObject *routine;
+@property (nullable, nonatomic, retain) NSData *image;
 
 @end
 

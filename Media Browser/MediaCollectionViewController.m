@@ -25,6 +25,11 @@ static NSString * const reuseIdentifier = @"MediaCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+    self.navigationItem.leftItemsSupplementBackButton = YES;
+    
+    [self loadSelectedRoutineFromDefaults];
+
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -42,6 +47,15 @@ static NSString * const reuseIdentifier = @"MediaCell";
     
     self.fetchedResultsController = nil;
     [self fetch];
+}
+
+- (void)configureView {
+    // Update the user interface for the detail item.
+    if (self.detailItem) {
+        [self setTitle:self.detailItem.name];
+        
+        [self saveSelectedRoutineToDefaults];
+    }
 }
 
 - (void)refreshData
@@ -72,6 +86,22 @@ static NSString * const reuseIdentifier = @"MediaCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadSelectedRoutineFromDefaults
+{
+    NSString *savedValue = [[NSUserDefaults standardUserDefaults] stringForKey:@"selectedRoutineID"];
+    NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
+    self.detailItem = [[Routine MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"routineID == %@", savedValue] inContext:context] firstObject];
+    
+    [self setTitle:self.detailItem.name];
+}
+
+- (void)saveSelectedRoutineToDefaults
+{
+    NSString *routineID = self.detailItem.routineID;
+    [[NSUserDefaults standardUserDefaults] setObject:routineID forKey:@"selectedRoutineID"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 /*
@@ -115,24 +145,41 @@ static NSString * const reuseIdentifier = @"MediaCell";
     return cell;
 }
 
--(UIImage *)loadThumbNail:(NSURL *)urlVideo
+-(UIImage *)loadThumbNailForVideo:(Video *)video
 {
+    NSURL *urlVideo = [NSURL URLWithString:video.mediaURL];
     AVAsset *asset = [AVAsset assetWithURL:urlVideo];
     AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
     CMTime time = CMTimeMake(1, 1);
     CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-    UIImage *thumbnail = [UIImage imageWithCGImage:imageRef];
+    UIImage* thumbnail = [[UIImage alloc] initWithCGImage:imageRef scale:UIViewContentModeScaleAspectFit orientation:UIImageOrientationUp];
     CGImageRelease(imageRef);  // CGImageRef won't be released by ARC
+    
+    [Video updateImage:thumbnail forVideoID:video.videoID completion:^(BOOL success, NSManagedObjectID *objectID, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+    }];
+    
     return thumbnail;
 }
 
 - (void)configureCell:(MediaCollectionViewCell *)cell withVideo:(Video *)video {    
     // Here we use the new provided sd_setImageWithURL: method to load the web image
     
-//    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        //Background Thread
-        [cell.imageView setImage:[self loadThumbNail:[NSURL URLWithString:video.mediaURL]]];
-//    });
+    UIImage *image = [UIImage imageWithData:video.image];
+    
+    if (!image) {
+        
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            //Background Thread
+            [self loadThumbNailForVideo:video];
+        });
+
+        image = [UIImage imageNamed:@"loadingImage"];
+    }
+    
+    [cell.imageView setImage:image];
 }
 
 - (void)configureCell:(MediaCollectionViewCell *)cell withPhoto:(Photo *)photo {
@@ -288,6 +335,18 @@ static NSString * const reuseIdentifier = @"MediaCell";
         } completion:nil];
     }
 }
+
+#pragma mark - Managing the detail item
+
+- (void)setDetailItem:(Routine *)newDetailItem {
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        
+        // Update the view.
+        [self configureView];
+    }
+}
+
 
 #pragma mark <UICollectionViewDelegate>
 

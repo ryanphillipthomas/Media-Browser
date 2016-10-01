@@ -22,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
                         mediaURL:(NSString *)mediaURL
                       completion:(MBSaveCompletionBlock)completionBlock;
 
++ (void)updateImage:(UIImage *)image
+         forVideoID:(NSString *)videoID
+         completion:(MBSaveCompletionBlock)completionBlock;
+
 + (void)deleteObjectWithVideoID:(NSString *)videoID
                      completion:(MBSaveCompletionBlock)completionBlock;
 
