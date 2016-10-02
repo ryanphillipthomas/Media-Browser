@@ -63,6 +63,10 @@
     // create an AVPlayer
     AVPlayer * player = [[AVPlayer alloc] initWithPlayerItem:item];
     
+    [player setAllowsExternalPlayback:YES];
+    [player setUsesExternalPlaybackWhileExternalScreenIsActive:YES];
+    
+    
     // create a player view controller
     self.aPlayerController = [[AVPlayerViewController alloc] init];
     self.aPlayerController.player = player;
