@@ -147,15 +147,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="21j-c5-eXB">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="21j-c5-eXB">
                             <size key="itemSize" width="130" height="110"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" reuseIdentifier="MediaCell" id="Pbj-Kl-zd0" customClass="MediaCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="130" height="110"/>
+                                <rect key="frame" x="5" y="5" width="130" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="130" height="110"/>
@@ -164,12 +164,16 @@
                                         <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-ZB-1SL">
                                             <frame key="frameInset" width="130" height="110"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="playImage" translatesAutoresizingMaskIntoConstraints="NO" id="puc-65-cdn" userLabel="Overlay View">
+                                            <frame key="frameInset" width="130" height="110"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <connections>
                                     <outlet property="imageView" destination="fnG-ZB-1SL" id="dvA-C4-Sgj"/>
+                                    <outlet property="overlayView" destination="puc-65-cdn" id="KTU-U7-gdZ"/>
                                     <segue destination="jhE-mH-19Z" kind="show" identifier="showDetail" id="4b5-bG-Fpk"/>
                                 </connections>
                             </collectionViewCell>
@@ -244,6 +248,7 @@
     </scenes>
     <resources>
         <image name="imageLoading" width="150" height="130"/>
+        <image name="playImage" width="130" height="110"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>

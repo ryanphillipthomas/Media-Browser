@@ -155,12 +155,15 @@ static NSString * const reuseIdentifier = @"MediaCell";
     }
     
     [cell.imageView setImage:image];
+    [cell.overlayView setHidden:NO];
 }
 
 - (void)configureCell:(MediaCollectionViewCell *)cell withPhoto:(Photo *)photo {
     // Here we use the new provided sd_setImageWithURL: method to load the web image
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photo.mediaURL]
                       placeholderImage:[UIImage imageNamed:@"imageLoading"]];
+    
+    [cell.overlayView setHidden:YES];
 }
 
 #pragma mark - Fetched results controller

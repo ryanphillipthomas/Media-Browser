@@ -11,5 +11,6 @@
 @interface MediaCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIImageView *overlayView;
 
 @end
