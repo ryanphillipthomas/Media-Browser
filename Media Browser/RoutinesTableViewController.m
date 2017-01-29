@@ -148,12 +148,36 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
     Routine *routine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self configureCell:cell withRoutine:routine];
     return cell;
 }
 
+
+#pragma mark - Search
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+{
+    self.isSearching = true;
+    
+    [self fetch];
+}
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
+{
+    self.isSearching = false;
+    
+    [self fetch];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    self.searchText = searchString;
+    
+    [self fetch];
+    
+    return YES;
+}
 
 - (void)configureCell:(UITableViewCell *)cell withRoutine:(Routine *)routine {
     cell.textLabel.text = routine.name;
@@ -172,25 +196,31 @@
 
 - (NSFetchedResultsController<Routine *> *)fetchedResultsController
 {
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Routine" inManagedObjectContext:context];
+    NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:SearchTitlePredicate, self.searchText];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"location.locationID == %@", self.selectedLocation.locationID];
+    
+    NSPredicate *coumpounded = [NSCompoundPredicate andPredicateWithSubpredicates:@[searchPredicate, predicate]];
 
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     [fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:predicate];
+    
+    if (self.isSearching && self.searchText.length > 0) {
+        [fetchRequest setPredicate:coumpounded];
+    } else {
+        [fetchRequest setPredicate:predicate];
+    }
 
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
-
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
+    if (_fetchedResultsController != nil && !self.isSearching) {
+        return _fetchedResultsController;
+    }
 
     NSFetchedResultsController *afetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                     managedObjectContext:context

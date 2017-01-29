@@ -12,6 +12,12 @@
 #import "FTPObjectData.h"
 #import <MagicalRecord/MagicalRecord.h>
 
+#import "Event+CoreDataClass.h"
+#import "Routine+CoreDataClass.h"
+#import "Location+CoreDataClass.h"
+#import "Video+CoreDataClass.h"
+#import "Photo+CoreDataClass.h"
+
 @interface MediaCollectionViewController : UICollectionViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) Routine *detailItem;

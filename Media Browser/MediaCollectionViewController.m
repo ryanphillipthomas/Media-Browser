@@ -191,6 +191,10 @@ static NSString * const reuseIdentifier = @"MediaCell";
         entityName = @"Photo";
     }
     
+    if (entityName.length == 0) {
+        entityName = @"Video";
+    }
+    
     NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routine.routineID == %@", self.detailItem.routineID];
     

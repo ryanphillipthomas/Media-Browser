@@ -10,6 +10,8 @@
 #import "MediaCollectionViewController.h"
 #import "RoutinesTableViewController.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -24,6 +26,8 @@
     [self setupCoreData];
     [self setupUX];
     [self setupStyle];
+    [[Fabric sharedSDK] setDebug: YES];
+    [Fabric with:@[[Crashlytics class]]];
 
 
     return YES;

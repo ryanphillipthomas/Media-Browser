@@ -23,6 +23,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define SearchTitlePredicate @"name CONTAINS[cd] %@"
 
 typedef void (^MBSaveCompletionBlock)(BOOL success, NSManagedObjectID *objectID,  NSError *error);
 

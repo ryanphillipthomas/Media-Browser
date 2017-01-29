@@ -15,12 +15,17 @@
 
 @class MediaCollectionViewController;
 
-@interface RoutinesTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, LocationsTableViewControllerDelegate>
+@interface RoutinesTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, LocationsTableViewControllerDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (strong, nonatomic) MediaCollectionViewController *mediaCollectionViewController;
 @property (strong, nonatomic) NSFetchedResultsController<Routine *> *fetchedResultsController;
 
 @property (nonatomic, strong) FTPObjectData *ftpData;
+@property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, strong) UISearchBar * searchBar;
+
+@property (nonatomic, strong) NSString *searchText;
+@property (nonatomic) bool isSearching;
 
 @end
 
