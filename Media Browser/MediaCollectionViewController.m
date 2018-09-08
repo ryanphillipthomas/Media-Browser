@@ -184,15 +184,19 @@ static NSString * const reuseIdentifier = @"MediaCell";
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [[MagicalRecordStack defaultStack] context];
     NSString *entityName = [NSString new];
-    
+    NSString *sortDescriptorString = [NSString new];
+
     if ([self.detailItem.name rangeOfString:@"Video"].location != NSNotFound) {
         entityName = @"Video";
+        sortDescriptorString = @"videoID";
     } else if ([self.detailItem.name rangeOfString:@"Photo"].location != NSNotFound) {
         entityName = @"Photo";
+        sortDescriptorString = @"photoID";
     }
     
     if (entityName.length == 0) {
         entityName = @"Video";
+        sortDescriptorString = @"videoID";
     }
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
@@ -204,8 +208,7 @@ static NSString * const reuseIdentifier = @"MediaCell";
     [fetchRequest setPredicate:predicate];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
-    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortDescriptorString ascending:YES];
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     
